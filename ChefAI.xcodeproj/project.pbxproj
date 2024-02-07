@@ -11,6 +11,9 @@
 		DD3653692B74318600E3ABEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3653682B74318600E3ABEA /* ContentView.swift */; };
 		DD36536B2B74318800E3ABEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD36536A2B74318800E3ABEA /* Assets.xcassets */; };
 		DD36536E2B74318800E3ABEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD36536D2B74318800E3ABEA /* Preview Assets.xcassets */; };
+		DDC71D1C2B74419D00A73333 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D1B2B74419D00A73333 /* HomeView.swift */; };
+		DDC71D1E2B7441C100A73333 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D1D2B7441C100A73333 /* RecipesView.swift */; };
+		DDC71D202B7441D700A73333 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D1F2B7441D700A73333 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		DD3653682B74318600E3ABEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DD36536A2B74318800E3ABEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD36536D2B74318800E3ABEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DDC71D1B2B74419D00A73333 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DDC71D1D2B7441C100A73333 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
+		DDC71D1F2B7441D700A73333 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,9 @@
 				DD3653682B74318600E3ABEA /* ContentView.swift */,
 				DD36536A2B74318800E3ABEA /* Assets.xcassets */,
 				DD36536C2B74318800E3ABEA /* Preview Content */,
+				DDC71D1B2B74419D00A73333 /* HomeView.swift */,
+				DDC71D1D2B7441C100A73333 /* RecipesView.swift */,
+				DDC71D1F2B7441D700A73333 /* ProfileView.swift */,
 			);
 			path = ChefAI;
 			sourceTree = "<group>";
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC71D1C2B74419D00A73333 /* HomeView.swift in Sources */,
 				DD3653692B74318600E3ABEA /* ContentView.swift in Sources */,
+				DDC71D202B7441D700A73333 /* ProfileView.swift in Sources */,
+				DDC71D1E2B7441C100A73333 /* RecipesView.swift in Sources */,
 				DD3653672B74318600E3ABEA /* ChefAIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
