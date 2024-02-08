@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct InventoryView: View {
     var body: some View {
         Text("Profile")
     }
 }
 
 #Preview {
-    ProfileView()
+    InventoryView()
 }

@@ -13,9 +13,11 @@
 		DD36536E2B74318800E3ABEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD36536D2B74318800E3ABEA /* Preview Assets.xcassets */; };
 		DDC71D1C2B74419D00A73333 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D1B2B74419D00A73333 /* HomeView.swift */; };
 		DDC71D1E2B7441C100A73333 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D1D2B7441C100A73333 /* RecipesView.swift */; };
-		DDC71D202B7441D700A73333 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D1F2B7441D700A73333 /* ProfileView.swift */; };
+		DDC71D202B7441D700A73333 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D1F2B7441D700A73333 /* InventoryView.swift */; };
 		DDC71D242B74757400A73333 /* CameraScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D232B74757400A73333 /* CameraScanner.swift */; };
 		DDC71D262B7475B800A73333 /* CameraScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D252B7475B800A73333 /* CameraScannerViewController.swift */; };
+		DDC71D2B2B7547C400A73333 /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D2A2B7547C400A73333 /* InventoryViewModel.swift */; };
+		DDC71D2D2B754C8C00A73333 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D2C2B754C8C00A73333 /* FoodItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,9 +28,11 @@
 		DD36536D2B74318800E3ABEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDC71D1B2B74419D00A73333 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DDC71D1D2B7441C100A73333 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
-		DDC71D1F2B7441D700A73333 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DDC71D1F2B7441D700A73333 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		DDC71D232B74757400A73333 /* CameraScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScanner.swift; sourceTree = "<group>"; };
 		DDC71D252B7475B800A73333 /* CameraScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScannerViewController.swift; sourceTree = "<group>"; };
+		DDC71D2A2B7547C400A73333 /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
+		DDC71D2C2B754C8C00A73333 /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,15 +65,14 @@
 		DD3653652B74318600E3ABEA /* ChefAI */ = {
 			isa = PBXGroup;
 			children = (
+				DDC71D282B75476B00A73333 /* Inventory */,
+				DDC71D272B7545FA00A73333 /* Scanner */,
 				DD3653662B74318600E3ABEA /* ChefAIApp.swift */,
 				DD3653682B74318600E3ABEA /* ContentView.swift */,
 				DD36536A2B74318800E3ABEA /* Assets.xcassets */,
 				DD36536C2B74318800E3ABEA /* Preview Content */,
 				DDC71D1B2B74419D00A73333 /* HomeView.swift */,
 				DDC71D1D2B7441C100A73333 /* RecipesView.swift */,
-				DDC71D1F2B7441D700A73333 /* ProfileView.swift */,
-				DDC71D232B74757400A73333 /* CameraScanner.swift */,
-				DDC71D252B7475B800A73333 /* CameraScannerViewController.swift */,
 			);
 			path = ChefAI;
 			sourceTree = "<group>";
@@ -80,6 +83,25 @@
 				DD36536D2B74318800E3ABEA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DDC71D272B7545FA00A73333 /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DDC71D252B7475B800A73333 /* CameraScannerViewController.swift */,
+				DDC71D232B74757400A73333 /* CameraScanner.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		DDC71D282B75476B00A73333 /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				DDC71D1F2B7441D700A73333 /* InventoryView.swift */,
+				DDC71D2A2B7547C400A73333 /* InventoryViewModel.swift */,
+				DDC71D2C2B754C8C00A73333 /* FoodItem.swift */,
+			);
+			path = Inventory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +178,9 @@
 				DDC71D262B7475B800A73333 /* CameraScannerViewController.swift in Sources */,
 				DD3653692B74318600E3ABEA /* ContentView.swift in Sources */,
 				DDC71D242B74757400A73333 /* CameraScanner.swift in Sources */,
-				DDC71D202B7441D700A73333 /* ProfileView.swift in Sources */,
+				DDC71D2D2B754C8C00A73333 /* FoodItem.swift in Sources */,
+				DDC71D202B7441D700A73333 /* InventoryView.swift in Sources */,
+				DDC71D2B2B7547C400A73333 /* InventoryViewModel.swift in Sources */,
 				DDC71D1E2B7441C100A73333 /* RecipesView.swift in Sources */,
 				DD3653672B74318600E3ABEA /* ChefAIApp.swift in Sources */,
 			);

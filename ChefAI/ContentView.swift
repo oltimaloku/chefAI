@@ -24,9 +24,9 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-            ProfileView()
+            InventoryView()
                 .tabItem {
-                    Label("Profile", systemImage: "person")
+                    Label("Inventory", systemImage: "refrigerator")
                 }
                 .tag(2)
             
