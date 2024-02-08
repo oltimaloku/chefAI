@@ -18,6 +18,9 @@
 		DDC71D262B7475B800A73333 /* CameraScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D252B7475B800A73333 /* CameraScannerViewController.swift */; };
 		DDC71D2B2B7547C400A73333 /* InventoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D2A2B7547C400A73333 /* InventoryViewModel.swift */; };
 		DDC71D2D2B754C8C00A73333 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D2C2B754C8C00A73333 /* FoodItem.swift */; };
+		DDC71D322B75539F00A73333 /* SwiftUIFontIcon in Frameworks */ = {isa = PBXBuildFile; productRef = DDC71D312B75539F00A73333 /* SwiftUIFontIcon */; };
+		DDC71D352B75548E00A73333 /* FoodItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D342B75548E00A73333 /* FoodItemComponent.swift */; };
+		DDC71D382B75597700A73333 /* FoodItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D372B75597700A73333 /* FoodItemDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,8 @@
 		DDC71D252B7475B800A73333 /* CameraScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScannerViewController.swift; sourceTree = "<group>"; };
 		DDC71D2A2B7547C400A73333 /* InventoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewModel.swift; sourceTree = "<group>"; };
 		DDC71D2C2B754C8C00A73333 /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
+		DDC71D342B75548E00A73333 /* FoodItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemComponent.swift; sourceTree = "<group>"; };
+		DDC71D372B75597700A73333 /* FoodItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC71D322B75539F00A73333 /* SwiftUIFontIcon in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,11 +103,29 @@
 		DDC71D282B75476B00A73333 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
-				DDC71D1F2B7441D700A73333 /* InventoryView.swift */,
+				DDC71D362B7555FD00A73333 /* Views */,
+				DDC71D332B75547A00A73333 /* Components */,
 				DDC71D2A2B7547C400A73333 /* InventoryViewModel.swift */,
 				DDC71D2C2B754C8C00A73333 /* FoodItem.swift */,
 			);
 			path = Inventory;
+			sourceTree = "<group>";
+		};
+		DDC71D332B75547A00A73333 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DDC71D342B75548E00A73333 /* FoodItemComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DDC71D362B7555FD00A73333 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDC71D1F2B7441D700A73333 /* InventoryView.swift */,
+				DDC71D372B75597700A73333 /* FoodItemDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +144,9 @@
 			dependencies = (
 			);
 			name = ChefAI;
+			packageProductDependencies = (
+				DDC71D312B75539F00A73333 /* SwiftUIFontIcon */,
+			);
 			productName = ChefAI;
 			productReference = DD3653632B74318600E3ABEA /* ChefAI.app */;
 			productType = "com.apple.product-type.application";
@@ -148,6 +175,9 @@
 				Base,
 			);
 			mainGroup = DD36535A2B74318600E3ABEA;
+			packageReferences = (
+				DDC71D302B75539F00A73333 /* XCRemoteSwiftPackageReference "SwiftUIFontIcon" */,
+			);
 			productRefGroup = DD3653642B74318600E3ABEA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -175,9 +205,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC71D1C2B74419D00A73333 /* HomeView.swift in Sources */,
+				DDC71D382B75597700A73333 /* FoodItemDetailView.swift in Sources */,
 				DDC71D262B7475B800A73333 /* CameraScannerViewController.swift in Sources */,
 				DD3653692B74318600E3ABEA /* ContentView.swift in Sources */,
 				DDC71D242B74757400A73333 /* CameraScanner.swift in Sources */,
+				DDC71D352B75548E00A73333 /* FoodItemComponent.swift in Sources */,
 				DDC71D2D2B754C8C00A73333 /* FoodItem.swift in Sources */,
 				DDC71D202B7441D700A73333 /* InventoryView.swift in Sources */,
 				DDC71D2B2B7547C400A73333 /* InventoryViewModel.swift in Sources */,
@@ -392,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDC71D302B75539F00A73333 /* XCRemoteSwiftPackageReference "SwiftUIFontIcon" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huybuidac/SwiftUIFontIcon";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DDC71D312B75539F00A73333 /* SwiftUIFontIcon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDC71D302B75539F00A73333 /* XCRemoteSwiftPackageReference "SwiftUIFontIcon" */;
+			productName = SwiftUIFontIcon;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DD36535B2B74318600E3ABEA /* Project object */;
 }

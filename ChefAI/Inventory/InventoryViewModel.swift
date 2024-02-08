@@ -8,5 +8,9 @@
 import Foundation
 
 class InventoryViewModel: NSObject, ObservableObject {
+    @Published private var inventoryModel: [FoodItem] = []
     
+    func addItem(_ item: FoodItem) {
+        inventoryModel.append(item)
+    }
 }
