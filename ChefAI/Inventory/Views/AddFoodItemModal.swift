@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddFoodItemModal: View {
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var viewModel: InventoryViewModel
+    
     @State private var itemName: String = ""
     @State private var quantity: Int = 0
     @State private var unit: FoodItem.Unit = .piece
@@ -16,6 +18,7 @@ struct AddFoodItemModal: View {
     @State private var category: FoodItem.Category = .fruits
     @State private var purchaseDate: Date = Date()
     @State private var location: FoodItem.StorageLocation = .pantry
+    
     var body: some View {
         NavigationView {
             Form {
@@ -57,16 +60,19 @@ struct AddFoodItemModal: View {
             
         }
         
-        
     }
     func saveUser() {
-        print("Save user")
+        
+        let newItem = FoodItem(id: UUID(), name: itemName, quantity: quantity, unit: unit, expirationDate: expirationDate, category: category, purchaseDate: purchaseDate, location: location)
+                viewModel.addItem(newItem)
+                
         presentationMode.wrappedValue.dismiss()
+        print(viewModel.inventory)
     }
 }
 
 #Preview {
-    AddFoodItemModal()
+    AddFoodItemModal(viewModel: InventoryViewModel())
 }
 
 #if canImport(UIKit)

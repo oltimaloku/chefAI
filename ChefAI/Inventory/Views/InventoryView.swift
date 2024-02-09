@@ -9,12 +9,18 @@ import SwiftUI
 
 struct InventoryView: View {
     @State private var showingModal = false
+    @ObservedObject var viewModel = InventoryViewModel()
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
-                    FoodItemComponent(name: "Apples", quantity: "5")
-                    FoodItemComponent(name: "Oranges", quantity: "4")
+                    ForEach(viewModel.inventory) { foodItem in
+                                            
+                                            FoodItemComponent(name: foodItem.name, quantity: "\(foodItem.quantity)")
+                                        }
+                    Button("Button") {
+                        print(viewModel.inventory)
+                    }
                     
                 }
                 .navigationBarTitle("Food Items", displayMode: .large)
@@ -24,7 +30,7 @@ struct InventoryView: View {
                                     Image(systemName: "plus")
                                 })
                                 .sheet(isPresented: $showingModal) {
-                                    AddFoodItemModal()
+                                    AddFoodItemModal(viewModel: viewModel)
                                 }
             }
         }

@@ -10,6 +10,10 @@ import Foundation
 class InventoryViewModel: NSObject, ObservableObject {
     @Published private var inventoryModel: [FoodItem] = []
     
+    var inventory: [FoodItem] {
+            return inventoryModel
+        }
+    
     func addItem(_ item: FoodItem) {
         inventoryModel.append(item)
     }
