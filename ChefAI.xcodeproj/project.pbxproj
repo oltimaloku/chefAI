@@ -22,6 +22,7 @@
 		DDC71D352B75548E00A73333 /* FoodItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D342B75548E00A73333 /* FoodItemComponent.swift */; };
 		DDC71D382B75597700A73333 /* FoodItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D372B75597700A73333 /* FoodItemDetailView.swift */; };
 		DDC71D3A2B759C0200A73333 /* AddFoodItemModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D392B759C0200A73333 /* AddFoodItemModal.swift */; };
+		DDC71D3C2B75FF2C00A73333 /* BarcodeLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D3B2B75FF2C00A73333 /* BarcodeLookupService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DDC71D342B75548E00A73333 /* FoodItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemComponent.swift; sourceTree = "<group>"; };
 		DDC71D372B75597700A73333 /* FoodItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemDetailView.swift; sourceTree = "<group>"; };
 		DDC71D392B759C0200A73333 /* AddFoodItemModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodItemModal.swift; sourceTree = "<group>"; };
+		DDC71D3B2B75FF2C00A73333 /* BarcodeLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeLookupService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				DDC71D252B7475B800A73333 /* CameraScannerViewController.swift */,
 				DDC71D232B74757400A73333 /* CameraScanner.swift */,
+				DDC71D3B2B75FF2C00A73333 /* BarcodeLookupService.swift */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				DDC71D2B2B7547C400A73333 /* InventoryViewModel.swift in Sources */,
 				DDC71D3A2B759C0200A73333 /* AddFoodItemModal.swift in Sources */,
 				DDC71D1E2B7441C100A73333 /* RecipesView.swift in Sources */,
+				DDC71D3C2B75FF2C00A73333 /* BarcodeLookupService.swift in Sources */,
 				DD3653672B74318600E3ABEA /* ChefAIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

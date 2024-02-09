@@ -24,14 +24,14 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
     // Sets the coordinator as the delegate to handle recognized text taps
     func makeUIViewController(context: Context) -> DataScannerViewController {
         let viewController = DataScannerViewController(
-            recognizedDataTypes: [.text()],
+            recognizedDataTypes: [.barcode()],
             qualityLevel: .accurate,
             recognizesMultipleItems: false,
             isHighFrameRateTrackingEnabled: false,
             isHighlightingEnabled: true)
         
         viewController.delegate = context.coordinator
-
+        
         return viewController
     }
     
@@ -56,6 +56,19 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
             switch item {
             case .text(let text):
                 parent.scanResult = text.transcript
+                print("-- Text Observation -- \(text.observation)")
+                print("-- Text transcript -- \(text.transcript)")
+                
+            case .barcode(let code):
+                if let barcodeValue = code.payloadStringValue {
+                    parent.scanResult = barcodeValue
+                    let barCodeLookupService = BarcodeLookupService()
+                    barCodeLookupService.fetchProductDetails(barcode: barcodeValue)
+                    print("Barcode Value: \(barcodeValue)")
+                } else {
+                    print("Barcode value could not be extracted.")
+                }
+                
             default:
                 break
             }
