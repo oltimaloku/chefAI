@@ -11,8 +11,8 @@ struct FoodItem: Codable, Identifiable {
     let id: UUID
     var name: String
     var quantity: Int
-    var unit: String
-    var expirationDate: Date?
+    var unit: Unit
+    var expirationDate: Date
     var category: Category
     var purchaseDate: Date
     var location: StorageLocation
@@ -41,6 +41,54 @@ struct FoodItem: Codable, Identifiable {
             }
         }
     }
+    
+    enum Unit: String, CaseIterable, Codable {
+        case piece = "pc"
+        case pack = "pack"
+        case box = "box"
+        case gram = "g"
+        case kilogram = "kg"
+        case pound = "lb"
+        case liter = "L"
+        case milliliter = "mL"
+        case cup = "cup"
+        case tablespoon = "tbsp"
+        case teaspoon = "tsp"
+        case inch = "in"
+        case centimeter = "cm"
+        
+        var displayName: String {
+            switch self {
+            case .piece:
+                return "Piece"
+            case .pack:
+                return "Pack"
+            case .box:
+                return "Box"
+            case .gram:
+                return "Gram"
+            case .kilogram:
+                return "Kilogram"
+            case .pound:
+                return "Pound"
+            case .liter:
+                return "Liter"
+            case .milliliter:
+                return "Milliliter"
+            case .cup:
+                return "Cup"
+            case .tablespoon:
+                return "Tablespoon"
+            case .teaspoon:
+                return "Teaspoon"
+            case .inch:
+                return "Inch"
+            case .centimeter:
+                return "Centimeter"
+            }
+        }
+    }
+
     
     enum StorageLocation: String, CaseIterable, Codable {
         case fridge, freezer, pantry, cupboard
