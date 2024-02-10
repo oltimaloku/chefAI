@@ -203,6 +203,14 @@ struct Product: Codable {
         case updateKey = "update_key"
         case vitaminsTags = "vitamins_tags"
     }
+    func debugDescription() -> String {
+            var description = "Product Details:\n"
+            description += "ID: \(self.id)\n"
+            description += "Name: \(self.productName)\n"
+            description += "Categories: \(self.categoriesPropertiesTags.joined(separator: ", "))\n"
+            // Add more fields as needed
+            return description
+        }
 }
 
 // MARK: - CategoriesProperties
@@ -391,6 +399,7 @@ class JSONNull: Codable, Hashable {
             throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
         }
     }
+    
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()

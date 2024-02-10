@@ -25,7 +25,7 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> DataScannerViewController {
         let viewController = DataScannerViewController(
             recognizedDataTypes: [.barcode()],
-            qualityLevel: .accurate,
+            qualityLevel: .fast,
             recognizesMultipleItems: false,
             isHighFrameRateTrackingEnabled: false,
             isHighlightingEnabled: true)
@@ -61,13 +61,24 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
                 
             case .barcode(let code):
                 if let barcodeValue = code.payloadStringValue {
-                    parent.scanResult = barcodeValue
                     let barCodeLookupService = BarcodeLookupService()
-                    barCodeLookupService.fetchProductDetails(barcode: barcodeValue)
-                    print("Barcode Value: \(barcodeValue)")
+                    barCodeLookupService.fetchProductDetails(barcode: barcodeValue) { product, errorMessage in
+                        DispatchQueue.main.async {
+                            if let product = product {
+                                // Assuming 'product' has a 'productName' property for simplicity
+                                self.parent.scanResult = "Product Name: \(product.productName)"
+                            } else if let errorMessage = errorMessage {
+                                self.parent.scanResult = "Error: \(errorMessage)"
+                            }
+                        }
+                        print("Barcode Value: \(barcodeValue)")
+                    }
                 } else {
-                    print("Barcode value could not be extracted.")
+                    DispatchQueue.main.async {
+                        self.parent.scanResult = "Barcode value could not be extracted."
+                    }
                 }
+
                 
             default:
                 break

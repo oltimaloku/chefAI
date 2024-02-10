@@ -1,42 +1,44 @@
-//
-//  BarcodeLookupService.swift
-//  ChefAI
-//
-//  Created by Olti Maloku on 2024-02-08.
-//
-
 import Foundation
 
 struct BarcodeLookupService {
     
-    func fetchProductDetails(barcode: String) {
-        let urlString = "https://world.openfoodfacts.org/api/v0/product/\(barcode).json"
+    func fetchProductDetails(barcode: String, completion: @escaping (Product?, String?) -> Void) {
+        let urlString = "https://world.openfoodfacts.net/api/v2/product/\(barcode)?fields=product_name,nutriscore_data"
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
+            completion(nil, "Invalid URL")
             return
         }
 
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                // If there's an error in the web request, print it to the console
                 print("Error: \(error)")
+                completion(nil, "Error fetching product details: \(error.localizedDescription)")
                 return
             }
 
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                if let data = data {
-                    // If we receive data, print it as a string for debugging
-                    let dataString = String(decoding: data, as: UTF8.self)
-                    print(dataString)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let data = data else {
+                print("Invalid response from server or no data")
+                completion(nil, "Invalid response from server or no data")
+                return
+            }
+
+            do {
+                let dataString = String(decoding: data, as: UTF8.self)
+                                    print(dataString)
+                let decoder = JSONDecoder()
+                let item = try decoder.decode(Item.self, from: data)
+                if item.status == 1 {
+                    completion(item.product, nil)
+                    print(item.product.debugDescription())
                 } else {
-                    print("No data received")
+                    completion(nil, item.statusVerbose)
                 }
-            } else {
-                print("Invalid response from server")
+            } catch {
+                print("Decoding error: \(error)")
+                completion(nil, "Decoding error: \(error.localizedDescription)")
             }
         }
         task.resume()
     }
-
 }
-
