@@ -25,7 +25,7 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> DataScannerViewController {
         let viewController = DataScannerViewController(
             recognizedDataTypes: [.barcode()],
-            qualityLevel: .fast,
+            qualityLevel: .accurate,
             recognizesMultipleItems: false,
             isHighFrameRateTrackingEnabled: false,
             isHighlightingEnabled: true)
@@ -66,7 +66,7 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
                         DispatchQueue.main.async {
                             if let product = product {
                                 // Assuming 'product' has a 'productName' property for simplicity
-                                self.parent.scanResult = "Product Name: \(product.productName)"
+                               // self.parent.scanResult = "Product Name: \(product.productName)"
                             } else if let errorMessage = errorMessage {
                                 self.parent.scanResult = "Error: \(errorMessage)"
                             }

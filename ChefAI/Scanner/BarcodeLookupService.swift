@@ -3,7 +3,8 @@ import Foundation
 struct BarcodeLookupService {
     
     func fetchProductDetails(barcode: String, completion: @escaping (Product?, String?) -> Void) {
-        let urlString = "https://world.openfoodfacts.net/api/v2/product/\(barcode)?fields=product_name,nutriscore_data"
+        let urlString = "https://world.openfoodfacts.org/api/v2/product/\(barcode)?fields=product_name,nutriscore_data,nutriments,categories_tags_en"
+       // let urlString = "https://world.openfoodfacts.org/api/v2/product/\(barcode)"
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             completion(nil, "Invalid URL")
@@ -17,22 +18,44 @@ struct BarcodeLookupService {
                 return
             }
 
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, let data = data else {
-                print("Invalid response from server or no data")
-                completion(nil, "Invalid response from server or no data")
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("No HTTP response")
+                completion(nil, "No HTTP response")
+                return
+            }
+
+            if httpResponse.statusCode != 200 {
+                print("HTTP Status Code: \(httpResponse.statusCode)")
+                if let data = data, let responseBody = String(data: data, encoding: .utf8) {
+                    print("Response body: \(responseBody)")
+                    completion(nil, "Invalid response from server: Status code \(httpResponse.statusCode) - \(responseBody)")
+                } else {
+                    completion(nil, "Invalid response from server: Status code \(httpResponse.statusCode)")
+                }
+                return
+            }
+
+            guard let data = data else {
+                print("No data received")
+                completion(nil, "No data received")
                 return
             }
 
             do {
                 let dataString = String(decoding: data, as: UTF8.self)
-                                    print(dataString)
-                let decoder = JSONDecoder()
-                let item = try decoder.decode(Item.self, from: data)
-                if item.status == 1 {
-                    completion(item.product, nil)
-                    print(item.product.debugDescription())
+                print(dataString)
+                
+                let product = try JSONDecoder().decode(Product.self, from: data)
+                if product.status == 1 {
+                    //completion(product.product, nil)
+                    if let product = product.product {
+                        print("Product Name: \(product.productName)")
+                    } else {
+                        print("Product not found")
+                    }
                 } else {
-                    completion(nil, item.statusVerbose)
+                    //completion(nil, product.statusVerbose)
+                    print("Fail")
                 }
             } catch {
                 print("Decoding error: \(error)")
