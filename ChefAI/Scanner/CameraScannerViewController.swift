@@ -15,6 +15,7 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
     
     @Binding var startScanning: Bool
     @Binding var scanResult: String
+    @Binding var navigateToProductDetails: Bool
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -65,8 +66,17 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
                     barCodeLookupService.fetchProductDetails(barcode: barcodeValue) { product, errorMessage in
                         DispatchQueue.main.async {
                             if let product = product {
-                                // Assuming 'product' has a 'productName' property for simplicity
-                               // self.parent.scanResult = "Product Name: \(product.productName)"
+                                print("HELLO")
+                                if let productName = product.productName {
+                                    self.parent.scanResult = "\(productName)"
+                                } else {
+                                    self.parent.scanResult = "Product Name not available"
+                                }
+
+                               
+                                print(self.parent.scanResult)
+                                self.parent.navigateToProductDetails = true // Trigger navigation
+                                self.parent.startScanning = false
                             } else if let errorMessage = errorMessage {
                                 self.parent.scanResult = "Error: \(errorMessage)"
                             }
@@ -78,7 +88,7 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
                         self.parent.scanResult = "Barcode value could not be extracted."
                     }
                 }
-
+                
                 
             default:
                 break

@@ -12,10 +12,11 @@ import SwiftUI
 struct CameraScanner: View {
     @Binding var startScanning: Bool
     @Binding var scanResult: String
+    @Binding var navigateToProductDetails: Bool
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
-            CameraScannerViewController(startScanning: $startScanning, scanResult: $scanResult)
+            CameraScannerViewController(startScanning: $startScanning, scanResult: $scanResult, navigateToProductDetails: $navigateToProductDetails)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
@@ -32,6 +33,6 @@ struct CameraScanner: View {
 
 struct CameraScanner_Previews: PreviewProvider {
     static var previews: some View {
-        CameraScanner(startScanning: .constant(true), scanResult: .constant(""))
+        CameraScanner(startScanning: .constant(true), scanResult: .constant(""), navigateToProductDetails: .constant(false))
     }
 }
