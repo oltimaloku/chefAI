@@ -13,17 +13,15 @@ struct HomeView: View {
     @State private var showCameraScannerView = false
     @State private var isDeviceCapacity = false
     @State private var showDeviceNotCapacityAlert = false
-    @State private var scanResults: String = ""
+    
     
     var body: some View {
         NavigationView {
             VStack {
-                Text(scanResults)
-                    .padding()
-                NavigationLink(destination: ProductDetailsView(scanResult: $scanResults), isActive: $navigateToProductDetails) {
-                                    EmptyView()
-                                }
-                                
+                NavigationLink(destination: ProductDetailsView(), isActive: $navigateToProductDetails) {
+                    EmptyView()
+                }
+                
                 Button {
                     if isDeviceCapacity {
                         self.showCameraScannerView = true
@@ -39,7 +37,7 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $showCameraScannerView) {
-                CameraScanner(startScanning: $showCameraScannerView, scanResult: $scanResults, navigateToProductDetails: $navigateToProductDetails)
+                CameraScanner(startScanning: $showCameraScannerView, navigateToProductDetails: $navigateToProductDetails)
             }
             .alert("Scanner Unavailable", isPresented: $showDeviceNotCapacityAlert, actions: {})
             .onAppear {
@@ -49,7 +47,8 @@ struct HomeView: View {
         }
     }
 }
-
-#Preview {
-    HomeView()
-}
+/*
+ #Preview {
+ HomeView()
+ }
+ */

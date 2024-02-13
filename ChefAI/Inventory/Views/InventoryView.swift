@@ -14,12 +14,12 @@ struct InventoryView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    ForEach(viewModel.inventory) { foodItem in
+                    ForEach(viewModel.getInventory) { foodItem in
                                             
                                             FoodItemComponent(name: foodItem.name, quantity: "\(foodItem.quantity)")
                                         }
                     Button("Button") {
-                        print(viewModel.inventory)
+                        print(viewModel.getInventory)
                     }
                     
                 }

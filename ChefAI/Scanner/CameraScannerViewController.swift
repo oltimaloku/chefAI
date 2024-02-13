@@ -14,11 +14,11 @@ import VisionKit
 struct CameraScannerViewController: UIViewControllerRepresentable {
     
     @Binding var startScanning: Bool
-    @Binding var scanResult: String
     @Binding var navigateToProductDetails: Bool
+    @EnvironmentObject var inventoryViewModel: InventoryViewModel
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator(self, inventoryViewModel: inventoryViewModel)
     }
     
     // Initializes DataScannerViewController
@@ -48,44 +48,41 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
     // Implements DataScannerViewControllerDelegate protocol to handle interaction with recognized items
     class Coordinator: NSObject, DataScannerViewControllerDelegate {
         var parent: CameraScannerViewController
-        init(_ parent: CameraScannerViewController) {
-            self.parent = parent
-        }
+        var inventoryViewModel: InventoryViewModel
+        
+        init(_ parent: CameraScannerViewController, inventoryViewModel: InventoryViewModel) {
+                self.parent = parent
+                self.inventoryViewModel = inventoryViewModel
+            }
         
         // When a recognized item is tapped, updates scanResults binding in CameraScannerViewController
         func dataScanner(_ dataScanner: DataScannerViewController, didTapOn item: RecognizedItem) {
             switch item {
-            case .text(let text):
-                parent.scanResult = text.transcript
-                print("-- Text Observation -- \(text.observation)")
-                print("-- Text transcript -- \(text.transcript)")
-                
             case .barcode(let code):
                 if let barcodeValue = code.payloadStringValue {
                     let barCodeLookupService = BarcodeLookupService()
                     barCodeLookupService.fetchProductDetails(barcode: barcodeValue) { product, errorMessage in
                         DispatchQueue.main.async {
                             if let product = product {
-                                print("HELLO")
                                 if let productName = product.productName {
-                                    self.parent.scanResult = "\(productName)"
+                                    self.inventoryViewModel.setPendingProduct(product)
                                 } else {
-                                    self.parent.scanResult = "Product Name not available"
+                                // TODO: Handle
+                                   // self.parent.scanResult = "Product Name not available"
                                 }
-
-                               
-                                print(self.parent.scanResult)
                                 self.parent.navigateToProductDetails = true // Trigger navigation
                                 self.parent.startScanning = false
                             } else if let errorMessage = errorMessage {
-                                self.parent.scanResult = "Error: \(errorMessage)"
+                                // TODO: Handle error
+                               // self.parent.scanResult = "Error: \(errorMessage)"
                             }
                         }
                         print("Barcode Value: \(barcodeValue)")
                     }
                 } else {
                     DispatchQueue.main.async {
-                        self.parent.scanResult = "Barcode value could not be extracted."
+                        // TODO: Handle error
+                        // self.parent.scanResult = "Barcode value could not be extracted."
                     }
                 }
                 

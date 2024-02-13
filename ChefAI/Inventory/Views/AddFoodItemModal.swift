@@ -67,7 +67,7 @@ struct AddFoodItemModal: View {
                 viewModel.addItem(newItem)
                 
         presentationMode.wrappedValue.dismiss()
-        print(viewModel.inventory)
+        print(viewModel.getInventory)
     }
 }
 

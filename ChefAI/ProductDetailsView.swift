@@ -8,24 +8,38 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    @Binding var scanResult: String
-
+    @ObservedObject var viewModel = InventoryViewModel()
+    @State private var isNutrimentsExpanded = false
+    
     var body: some View {
         NavigationView {
             VStack {
+                List {
+                    DisclosureGroup("Nutriments", isExpanded: $isNutrimentsExpanded) {
+                        Text("Here's some detailed information about the topic. You can put any content here, including text, images, or other SwiftUI views.")
+                        
+                    }
+                    .accentColor(.blue)
+                    .padding()
+                    .onTapGesture {
+                        self.isNutrimentsExpanded.toggle()
+                    }
+                }
                 
                 Spacer()
             }
-            .navigationTitle(scanResult)
-            .navigationBarTitleDisplayMode(.large) 
+            .navigationTitle(viewModel.getPendingProduct?.productName ?? "No product name")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
 
 // Preview
+
 struct ProductDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailsView(scanResult: .constant("Sample Scan Result"))
+        ProductDetailsView()
     }
 }
+
 
