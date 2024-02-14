@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductDetailsView: View {
     @ObservedObject var viewModel = InventoryViewModel()
     @State private var isNutrimentsExpanded = false
+    @State private var showingAddFoodItemModal = false
     
     var body: some View {
         NavigationView {
@@ -27,8 +28,11 @@ struct ProductDetailsView: View {
                 }
                 
                 Spacer()
-                Button {
+                //NavigationLink(destination: AddFoodItemModal) 
                     
+                
+                Button {
+                    showingAddFoodItemModal = true
                 } label: {
                     Text("Add product to inventory").foregroundColor(.white)
                         .frame(width: 300, height: 50)
@@ -38,6 +42,9 @@ struct ProductDetailsView: View {
             }
             .navigationTitle(viewModel.getPendingProduct?.product?.productName ?? "No product name")
             .navigationBarTitleDisplayMode(.large)
+            .sheet(isPresented: $showingAddFoodItemModal, content: {
+                AddFoodItemModal(viewModel: viewModel)
+            })
         }
     }
 }
