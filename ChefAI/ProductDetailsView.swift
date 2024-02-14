@@ -27,8 +27,16 @@ struct ProductDetailsView: View {
                 }
                 
                 Spacer()
+                Button {
+                    
+                } label: {
+                    Text("Add product to inventory").foregroundColor(.white)
+                        .frame(width: 300, height: 50)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
             }
-            .navigationTitle(viewModel.getPendingProduct?.productName ?? "No product name")
+            .navigationTitle(viewModel.getPendingProduct?.product?.productName ?? "No product name")
             .navigationBarTitleDisplayMode(.large)
         }
     }

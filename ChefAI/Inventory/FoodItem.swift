@@ -10,6 +10,7 @@ import Foundation
 struct FoodItem: Codable, Identifiable {
     let id: UUID
     var name: String
+    var product: ProductClass?
     var quantity: Int
     var unit: Unit
     var expirationDate: Date
