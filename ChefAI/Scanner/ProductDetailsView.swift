@@ -26,25 +26,21 @@ struct ProductDetailsView: View {
                         self.isNutrimentsExpanded.toggle()
                     }
                 }
-                
                 Spacer()
-                //NavigationLink(destination: AddFoodItemModal) 
-                    
-                
                 Button {
-                    // showingAddFoodItemModal = true
-                    print(viewModel.getPendingProduct?.product?.productName)
+                    showingAddFoodItemModal = true
+                    // TODO: This should close once save button in modal is pressed
                 } label: {
                     Text("Add product to inventory").foregroundColor(.white)
                         .frame(width: 300, height: 50)
                         .background(Color.blue)
                         .cornerRadius(10)
-                }
+                }.padding(10)
             }
             .navigationTitle(viewModel.getPendingProduct?.product?.productName ?? "No product name")
             .navigationBarTitleDisplayMode(.large)
             .sheet(isPresented: $showingAddFoodItemModal, content: {
-                AddFoodItemModal(viewModel: viewModel)
+                AddFoodItemModal()
             })
         }
     }

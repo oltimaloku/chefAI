@@ -18,7 +18,7 @@ struct ContentView: View {
                     Label("Home", systemImage: "house")
                 }
                 .tag(0)
-                .environmentObject(inventoryViewModel)
+            
             
             RecipesView()
                 .tabItem {
@@ -32,7 +32,7 @@ struct ContentView: View {
                 }
                 .tag(2)
             
-        }
+        }.environmentObject(inventoryViewModel)
     }
 }
 

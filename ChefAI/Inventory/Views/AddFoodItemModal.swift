@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddFoodItemModal: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: InventoryViewModel
+    @EnvironmentObject var viewModel: InventoryViewModel
     
     
     var body: some View {
@@ -47,16 +47,22 @@ struct AddFoodItemModal: View {
                     } label: {
                         Image(systemName: "keyboard.chevron.compact.down")
                     }
-                    Button("Save"){ viewModel.saveItem()}
+                    Button("Save"){
+                        
+                        viewModel.saveItem()
+                        presentationMode.wrappedValue.dismiss()
+                        // TODO: Navigate to InventoryView
+                    }
+                    
                 }
             }
         }
-        
     }
 }
 
+
 #Preview {
-    AddFoodItemModal(viewModel: InventoryViewModel())
+    AddFoodItemModal()
 }
 
 #if canImport(UIKit)

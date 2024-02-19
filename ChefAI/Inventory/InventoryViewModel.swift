@@ -20,32 +20,32 @@ class InventoryViewModel: NSObject, ObservableObject {
     @Published private var pendingProduct: Product?
     
     var getInventory: [FoodItem] {
-            return inventoryModel
-        }
+        return inventoryModel
+    }
     
     var getPendingProduct: Product? {
-            return pendingProduct
-        }
+        return pendingProduct
+    }
     
     func setPendingProduct(_ product: Product) {
-            self.pendingProduct = product
+        self.pendingProduct = product
+        if let productName = product.product?.productName {
+            itemName = productName
         }
+        
+    }
     
     func addItem(_ item: FoodItem) {
         inventoryModel.append(item)
     }
     
-    func saveItem(product: ProductClass? = nil) {
-        let newItem = FoodItem(id: UUID(), name: itemName,  product: product, quantity: quantity, unit: unit, expirationDate: expirationDate, category: category, purchaseDate: purchaseDate, location: location)
-        addItem(newItem)
+    func saveItem() {
+        if let pendingProduct = pendingProduct{
+            let newItem = FoodItem(id: pendingProduct.code, name: itemName,  product: pendingProduct.product, quantity: quantity, unit: unit, expirationDate: expirationDate, category: category, purchaseDate: purchaseDate, location: location)
+            addItem(newItem)
+        } else {
+            let newItem = FoodItem(id: "123", name: itemName, quantity: quantity, unit: unit, expirationDate: expirationDate, category: category, purchaseDate: purchaseDate, location: location)
+            addItem(newItem)
+        }
     }
-    
-    /*
-    
-    func addProductToInventory(product: Product) {
-        var productClass = product.product
-        var foodItem: FoodItem = FoodItem(id: product.code, name: productClass?.productName, product: productClass, quantity: 1, unit: FoodItem.Unit.box, expirationDate: Date(), category: FoodItem.Category, purchaseDate: Date(), location: FoodItem.StorageLocation.cupboard)
-    }
-     */
-    
 }

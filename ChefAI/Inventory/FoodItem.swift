@@ -8,7 +8,7 @@
 import Foundation
 
 struct FoodItem: Codable, Identifiable {
-    let id: UUID
+    let id: String
     var name: String
     var product: ProductClass?
     var quantity: Int

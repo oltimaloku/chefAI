@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InventoryView: View {
     @State private var showingModal = false
-    @ObservedObject var viewModel = InventoryViewModel()
+    @EnvironmentObject var viewModel: InventoryViewModel
     var body: some View {
         NavigationView {
             ScrollView {
@@ -30,7 +30,7 @@ struct InventoryView: View {
                                     Image(systemName: "plus")
                                 })
                                 .sheet(isPresented: $showingModal) {
-                                    AddFoodItemModal(viewModel: viewModel)
+                                    AddFoodItemModal()
                                 }
             }
         }
