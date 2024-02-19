@@ -64,18 +64,11 @@ struct CameraScannerViewController: UIViewControllerRepresentable {
                     barCodeLookupService.fetchProductDetails(barcode: barcodeValue) { product, errorMessage in
                         DispatchQueue.main.async {
                             if let product = product {
-                                if let productName = product.productName {
-                                    self.inventoryViewModel.setPendingProduct(product)
-                                } else {
-                                // TODO: Handle
-                                   // self.parent.scanResult = "Product Name not available"
-                                }
+                                self.inventoryViewModel.setPendingProduct(product)
                                 self.parent.navigateToProductDetails = true // Trigger navigation
                                 self.parent.startScanning = false
-                            } else if let errorMessage = errorMessage {
-                                // TODO: Handle error
-                               // self.parent.scanResult = "Error: \(errorMessage)"
                             }
+                            
                         }
                         print("Barcode Value: \(barcodeValue)")
                     }

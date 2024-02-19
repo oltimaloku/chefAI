@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductDetailsView: View {
-    @ObservedObject var viewModel = InventoryViewModel()
+    @EnvironmentObject var viewModel: InventoryViewModel
     @State private var isNutrimentsExpanded = false
     @State private var showingAddFoodItemModal = false
     
@@ -32,7 +32,8 @@ struct ProductDetailsView: View {
                     
                 
                 Button {
-                    showingAddFoodItemModal = true
+                    // showingAddFoodItemModal = true
+                    print(viewModel.getPendingProduct?.product?.productName)
                 } label: {
                     Text("Add product to inventory").foregroundColor(.white)
                         .frame(width: 300, height: 50)

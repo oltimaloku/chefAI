@@ -2,7 +2,7 @@ import Foundation
 
 struct BarcodeLookupService {
     
-    func fetchProductDetails(barcode: String, completion: @escaping (ProductClass?, String?) -> Void) {
+    func fetchProductDetails(barcode: String, completion: @escaping (Product?, String?) -> Void) {
         let urlString = "https://world.openfoodfacts.org/api/v2/product/\(barcode)?fields=product_name,nutriscore_data,nutriments,categories_tags_en"
        // let urlString = "https://world.openfoodfacts.org/api/v2/product/\(barcode)"
         guard let url = URL(string: urlString) else {
@@ -47,13 +47,7 @@ struct BarcodeLookupService {
                 
                 let product = try JSONDecoder().decode(Product.self, from: data)
                 if product.status == 1 {
-                    //completion(product.product, nil)
-                    if let product = product.product {
-                        print("Product Name: \(product.productName)")
-                        completion(product, nil)
-                    } else {
-                        print("Product not found")
-                    }
+                    completion(product, nil)
                 } else {
                     //completion(nil, product.statusVerbose)
                     print("Fail")

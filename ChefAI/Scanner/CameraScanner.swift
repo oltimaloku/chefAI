@@ -12,11 +12,11 @@ import SwiftUI
 struct CameraScanner: View {
     @Binding var startScanning: Bool
     @Binding var navigateToProductDetails: Bool
-    @ObservedObject var inventoryViewModel = InventoryViewModel()
+    
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
-            CameraScannerViewController(startScanning: $startScanning, navigateToProductDetails: $navigateToProductDetails).environmentObject(inventoryViewModel)
+            CameraScannerViewController(startScanning: $startScanning, navigateToProductDetails: $navigateToProductDetails)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
