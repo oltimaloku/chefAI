@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct FoodItemComponent: View {
-    var foodItem: FoodItem
+    var item: FoodItem
     
     var body: some View {
-        NavigationLink(destination:  FoodItemDetailView(itemName: foodItem.name)) {
+        NavigationLink(destination:  FoodItemDetailView(item: item)) {
             HStack {
                 HStack(spacing: 8) {
                     Image(systemName: "photo.fill")
@@ -21,14 +21,17 @@ struct FoodItemComponent: View {
                         .clipped()
                         .cornerRadius(5)
                     
-                    Text(foodItem.name)
+                    Text(item.name)
                         .foregroundColor(.primary)
                         .font(.headline)
                 }
                 
                 Spacer()
                 
-                Text(foodItem.quantity)
+                Text(String(item.quantity))
+                    .foregroundColor(.secondary)
+                    .font(.subheadline)
+                Text(item.unit.displayName)
                     .foregroundColor(.secondary)
                     .font(.subheadline)
                 
@@ -42,10 +45,11 @@ struct FoodItemComponent: View {
 }
 
 // Preview
+/*
 struct FoodItemView_Previews: PreviewProvider {
     static var previews: some View {
         FoodItemComponent(name: "Apples", quantity: "2 lbs")
             .previewLayout(.sizeThatFits)
     }
 }
-
+*/

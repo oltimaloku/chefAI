@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct FoodItemDetailView: View {
-    var itemName: String
+    var item: FoodItem
     
     var body: some View {
-        Text("Details for \(itemName)")
-                    .navigationBarTitle(itemName, displayMode: .inline)
+        ScrollView {
+            VStack {
+                
+                Image(systemName: "photo.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: .infinity, height: 200)
+                    .clipped()
+                    .cornerRadius(5)
+                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                // TODO: Add spacing in between these elements
+                FoodItemForm().frame(width: .infinity, height: 200)
+        
+                Text("Nutriments").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                
+            }
+        }
     }
 }
 
 #Preview {
-    FoodItemDetailView(itemName: "Apples")
+    FoodItemDetailView(item: MockData.foodItems[0])
 }
+

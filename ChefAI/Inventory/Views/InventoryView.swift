@@ -15,8 +15,8 @@ struct InventoryView: View {
             ScrollView {
                 VStack {
                     ForEach(viewModel.getInventory) { foodItem in
-                        FoodItemComponent(foodItem: foodItem)
-                                        }
+                        FoodItemComponent(item: foodItem)
+                    }
                     Button("Button") {
                         print(viewModel.getInventory)
                     }
@@ -24,14 +24,14 @@ struct InventoryView: View {
                 }
                 .navigationBarTitle("Food Items", displayMode: .large)
                 .navigationBarItems(trailing: Button(action: {
-                                    self.showingModal = true
-                                }) {
-                                    Image(systemName: "plus")
-                                })
-                                .sheet(isPresented: $showingModal) {
-                                    AddFoodItemModal()
-                                    
-                                }
+                    self.showingModal = true
+                }) {
+                    Image(systemName: "plus")
+                })
+                .sheet(isPresented: $showingModal) {
+                    AddFoodItemModal()
+                    
+                }
             }
         }
         

@@ -14,31 +14,7 @@ struct AddFoodItemModal: View {
     
     var body: some View {
         NavigationView {
-            Form {
-                Section(header: Text("Item")) {
-                    TextField("Item Name", text: $viewModel.itemName)
-                    Stepper(value: $viewModel.quantity, in: 1...100) {
-                        Text("Quantity: \(viewModel.quantity)")
-                    }
-                    Picker("Unit", selection: $viewModel.unit) {
-                        ForEach(FoodItem.Unit.allCases, id: \.self) { unit in
-                            Text(unit.displayName).tag(unit)
-                        }
-                    }
-                    Picker("Category", selection: $viewModel.category) {
-                        ForEach(FoodItem.Category.allCases, id: \.self) { category in
-                            Text(category.rawValue).tag(category)
-                        }
-                    }
-                    Picker("Storage Location", selection: $viewModel.location) {
-                        ForEach(FoodItem.StorageLocation.allCases, id: \.self) { location in
-                            Text(location.rawValue).tag(location)
-                        }
-                    }
-                    DatePicker("Expiration Date", selection: $viewModel.expirationDate, displayedComponents: .date)
-                    DatePicker("Purchase Date", selection: $viewModel.purchaseDate, displayedComponents: .date)
-                }
-            }
+            FoodItemForm()
             .navigationTitle("New Food Item")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {

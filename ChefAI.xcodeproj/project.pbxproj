@@ -26,6 +26,7 @@
 		DDC71D3E2B7713D100A73333 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D3D2B7713D100A73333 /* Product.swift */; };
 		DDC71D402B79D22100A73333 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D3F2B79D22100A73333 /* ProductDetailsView.swift */; };
 		DDC71D422B86791700A73333 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D412B86791700A73333 /* MockData.swift */; };
+		DDC71D442B86832900A73333 /* FoodItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D432B86832900A73333 /* FoodItemForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		DDC71D3D2B7713D100A73333 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		DDC71D3F2B79D22100A73333 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		DDC71D412B86791700A73333 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		DDC71D432B86832900A73333 /* FoodItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		DD3653652B74318600E3ABEA /* ChefAI */ = {
 			isa = PBXGroup;
 			children = (
+				DDC71D452B868BB100A73333 /* Recipes */,
 				DDC71D282B75476B00A73333 /* Inventory */,
 				DDC71D272B7545FA00A73333 /* Scanner */,
 				DD3653662B74318600E3ABEA /* ChefAIApp.swift */,
@@ -129,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC71D342B75548E00A73333 /* FoodItemComponent.swift */,
+				DDC71D432B86832900A73333 /* FoodItemForm.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -141,6 +145,13 @@
 				DDC71D392B759C0200A73333 /* AddFoodItemModal.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DDC71D452B868BB100A73333 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Recipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 				DDC71D1C2B74419D00A73333 /* HomeView.swift in Sources */,
 				DDC71D382B75597700A73333 /* FoodItemDetailView.swift in Sources */,
 				DDC71D262B7475B800A73333 /* CameraScannerViewController.swift in Sources */,
+				DDC71D442B86832900A73333 /* FoodItemForm.swift in Sources */,
 				DD3653692B74318600E3ABEA /* ContentView.swift in Sources */,
 				DDC71D242B74757400A73333 /* CameraScanner.swift in Sources */,
 				DDC71D352B75548E00A73333 /* FoodItemComponent.swift in Sources */,
