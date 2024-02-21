@@ -9,7 +9,9 @@ import SwiftUI
 
 // Similar to MaterialApp widget in Flutter
 struct ContentView: View {
-    var inventoryViewModel = InventoryViewModel()
+    var inventoryViewModel: InventoryViewModel = InventoryViewModel()
+    var recipesViewModel: RecipesViewModel = RecipesViewModel()
+    
     @State private var selectedTab = 0
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -32,7 +34,7 @@ struct ContentView: View {
                 }
                 .tag(2)
             
-        }.environmentObject(inventoryViewModel)
+        }.environmentObject(inventoryViewModel).environmentObject(recipesViewModel)
     }
 }
 

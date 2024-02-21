@@ -17,6 +17,9 @@ class MockData {
         FoodItem(id: "6", name: "Jalepeno", quantity: 2, unit: FoodItem.Unit.piece, expirationDate: Date(), category: FoodItem.Category.vegetables, purchaseDate: Date(), location: FoodItem.StorageLocation.fridge),
         FoodItem(id: "7", name: "Potatoes", quantity: 10, unit: FoodItem.Unit.pound, expirationDate: Date(), category: FoodItem.Category.vegetables, purchaseDate: Date(), location: FoodItem.StorageLocation.pantry),
         FoodItem(id: "8", name: "Cucumber", quantity: 5, unit: FoodItem.Unit.unit, expirationDate: Date(), category: FoodItem.Category.vegetables, purchaseDate: Date(), location: FoodItem.StorageLocation.fridge),
-        
+    ]
+    
+    static var recipes: [Recipe] = [
+        Recipe(id: "1", name: "PB & J Sandwich", ingredients: MockData.foodItems, instructions: "Get 2 pieces of bread. Spread peanut butter on one side. Spread jelly on the other side.", time: "60")
     ]
 }

@@ -15,6 +15,7 @@ class InventoryViewModel: NSObject, ObservableObject {
     @Published var category: FoodItem.Category = .fruits
     @Published var purchaseDate: Date = Date()
     @Published var location: FoodItem.StorageLocation = .pantry
+    
     @Published private var inventoryModel: [FoodItem] = MockData.foodItems
     @Published private var pendingProduct: Product?
     private var nextId: Int = 9
