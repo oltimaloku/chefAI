@@ -25,6 +25,7 @@
 		DDC71D3C2B75FF2C00A73333 /* BarcodeLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D3B2B75FF2C00A73333 /* BarcodeLookupService.swift */; };
 		DDC71D3E2B7713D100A73333 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D3D2B7713D100A73333 /* Product.swift */; };
 		DDC71D402B79D22100A73333 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D3F2B79D22100A73333 /* ProductDetailsView.swift */; };
+		DDC71D422B86791700A73333 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D412B86791700A73333 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		DDC71D3B2B75FF2C00A73333 /* BarcodeLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeLookupService.swift; sourceTree = "<group>"; };
 		DDC71D3D2B7713D100A73333 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		DDC71D3F2B79D22100A73333 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		DDC71D412B86791700A73333 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				DDC71D2A2B7547C400A73333 /* InventoryViewModel.swift */,
 				DDC71D2C2B754C8C00A73333 /* FoodItem.swift */,
 				DDC71D3D2B7713D100A73333 /* Product.swift */,
+				DDC71D412B86791700A73333 /* MockData.swift */,
 			);
 			path = Inventory;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				DDC71D1E2B7441C100A73333 /* RecipesView.swift in Sources */,
 				DDC71D3C2B75FF2C00A73333 /* BarcodeLookupService.swift in Sources */,
 				DD3653672B74318600E3ABEA /* ChefAIApp.swift in Sources */,
+				DDC71D422B86791700A73333 /* MockData.swift in Sources */,
 				DDC71D3E2B7713D100A73333 /* Product.swift in Sources */,
 				DDC71D402B79D22100A73333 /* ProductDetailsView.swift in Sources */,
 			);

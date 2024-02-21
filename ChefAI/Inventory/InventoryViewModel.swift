@@ -15,9 +15,9 @@ class InventoryViewModel: NSObject, ObservableObject {
     @Published var category: FoodItem.Category = .fruits
     @Published var purchaseDate: Date = Date()
     @Published var location: FoodItem.StorageLocation = .pantry
-    
-    @Published private var inventoryModel: [FoodItem] = []
+    @Published private var inventoryModel: [FoodItem] = MockData.foodItems
     @Published private var pendingProduct: Product?
+    private var nextId: Int = 9
     
     var getInventory: [FoodItem] {
         return inventoryModel
@@ -44,7 +44,8 @@ class InventoryViewModel: NSObject, ObservableObject {
             let newItem = FoodItem(id: pendingProduct.code, name: itemName,  product: pendingProduct.product, quantity: quantity, unit: unit, expirationDate: expirationDate, category: category, purchaseDate: purchaseDate, location: location)
             addItem(newItem)
         } else {
-            let newItem = FoodItem(id: "123", name: itemName, quantity: quantity, unit: unit, expirationDate: expirationDate, category: category, purchaseDate: purchaseDate, location: location)
+            let newItem = FoodItem(id: String(nextId), name: itemName, quantity: quantity, unit: unit, expirationDate: expirationDate, category: category, purchaseDate: purchaseDate, location: location)
+            nextId += 1
             addItem(newItem)
         }
     }

@@ -15,8 +15,7 @@ struct InventoryView: View {
             ScrollView {
                 VStack {
                     ForEach(viewModel.getInventory) { foodItem in
-                                            
-                                            FoodItemComponent(name: foodItem.name, quantity: "\(foodItem.quantity)")
+                        FoodItemComponent(foodItem: foodItem)
                                         }
                     Button("Button") {
                         print(viewModel.getInventory)
@@ -31,6 +30,7 @@ struct InventoryView: View {
                                 })
                                 .sheet(isPresented: $showingModal) {
                                     AddFoodItemModal()
+                                    
                                 }
             }
         }

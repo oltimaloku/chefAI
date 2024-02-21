@@ -19,7 +19,7 @@ struct FoodItem: Codable, Identifiable {
     var location: StorageLocation
     
     enum Category: String, CaseIterable, Codable {
-        case dairy, fruits, vegetables, meats, grains, beverages, frozen, snacks
+        case dairy, fruits, vegetables, meats, grains, beverages, frozen, snacks, protein
         
         var iconName: String {
             switch self {
@@ -39,6 +39,8 @@ struct FoodItem: Codable, Identifiable {
                 return "icon_frozen"
             case .snacks:
                 return "icon_snacks"
+            case .protein:
+                return "icon_protein"
             }
         }
     }
@@ -57,6 +59,7 @@ struct FoodItem: Codable, Identifiable {
         case teaspoon = "tsp"
         case inch = "in"
         case centimeter = "cm"
+        case unit = "unit"
         
         var displayName: String {
             switch self {
@@ -86,6 +89,9 @@ struct FoodItem: Codable, Identifiable {
                 return "Inch"
             case .centimeter:
                 return "Centimeter"
+            case .unit:
+                return "unit"
+            
             }
         }
     }
