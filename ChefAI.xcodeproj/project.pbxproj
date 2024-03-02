@@ -32,6 +32,10 @@
 		DDC71D4D2B868E2D00A73333 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D4C2B868E2D00A73333 /* RecipeDetailView.swift */; };
 		DDC71D4F2B86912800A73333 /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D4E2B86912800A73333 /* RecipesViewModel.swift */; };
 		DDC71D512B92A3C400A73333 /* GenerateRecipesModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D502B92A3C400A73333 /* GenerateRecipesModal.swift */; };
+		DDC71D542B92A8A000A73333 /* GenerateRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D532B92A8A000A73333 /* GenerateRecipes.swift */; };
+		DDC71D562B92B41C00A73333 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D552B92B41C00A73333 /* OpenAIService.swift */; };
+		DDC71D582B92B5C600A73333 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D572B92B5C600A73333 /* Secrets.swift */; };
+		DDC71D5A2B92D5A900A73333 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DDC71D592B92D5A900A73333 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		DDC71D4C2B868E2D00A73333 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		DDC71D4E2B86912800A73333 /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		DDC71D502B92A3C400A73333 /* GenerateRecipesModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateRecipesModal.swift; sourceTree = "<group>"; };
+		DDC71D532B92A8A000A73333 /* GenerateRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateRecipes.swift; sourceTree = "<group>"; };
+		DDC71D552B92B41C00A73333 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		DDC71D572B92B5C600A73333 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		DDC71D592B92D5A900A73333 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 		DD36535A2B74318600E3ABEA = {
 			isa = PBXGroup;
 			children = (
+				DDC71D592B92D5A900A73333 /* .gitignore */,
 				DD3653652B74318600E3ABEA /* ChefAI */,
 				DD3653642B74318600E3ABEA /* Products */,
 			);
@@ -102,6 +111,7 @@
 				DD36536A2B74318800E3ABEA /* Assets.xcassets */,
 				DD36536C2B74318800E3ABEA /* Preview Content */,
 				DDC71D1B2B74419D00A73333 /* HomeView.swift */,
+				DDC71D572B92B5C600A73333 /* Secrets.swift */,
 			);
 			path = ChefAI;
 			sourceTree = "<group>";
@@ -159,6 +169,7 @@
 		DDC71D452B868BB100A73333 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				DDC71D522B92A88700A73333 /* Services */,
 				DDC71D472B868CC900A73333 /* Components */,
 				DDC71D462B868C3D00A73333 /* Views */,
 				DDC71D4A2B868D6000A73333 /* Recipe.swift */,
@@ -183,6 +194,15 @@
 				DDC71D482B868CDA00A73333 /* RecipeComponent.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		DDC71D522B92A88700A73333 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DDC71D532B92A8A000A73333 /* GenerateRecipes.swift */,
+				DDC71D552B92B41C00A73333 /* OpenAIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD36536E2B74318800E3ABEA /* Preview Assets.xcassets in Resources */,
+				DDC71D5A2B92D5A900A73333 /* .gitignore in Resources */,
 				DD36536B2B74318800E3ABEA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,16 +286,19 @@
 				DDC71D382B75597700A73333 /* FoodItemDetailView.swift in Sources */,
 				DDC71D262B7475B800A73333 /* CameraScannerViewController.swift in Sources */,
 				DDC71D442B86832900A73333 /* FoodItemForm.swift in Sources */,
+				DDC71D542B92A8A000A73333 /* GenerateRecipes.swift in Sources */,
 				DD3653692B74318600E3ABEA /* ContentView.swift in Sources */,
 				DDC71D242B74757400A73333 /* CameraScanner.swift in Sources */,
 				DDC71D352B75548E00A73333 /* FoodItemComponent.swift in Sources */,
 				DDC71D2D2B754C8C00A73333 /* FoodItem.swift in Sources */,
 				DDC71D202B7441D700A73333 /* InventoryView.swift in Sources */,
 				DDC71D2B2B7547C400A73333 /* InventoryViewModel.swift in Sources */,
+				DDC71D562B92B41C00A73333 /* OpenAIService.swift in Sources */,
 				DDC71D3A2B759C0200A73333 /* AddFoodItemModal.swift in Sources */,
 				DDC71D4D2B868E2D00A73333 /* RecipeDetailView.swift in Sources */,
 				DDC71D4F2B86912800A73333 /* RecipesViewModel.swift in Sources */,
 				DDC71D1E2B7441C100A73333 /* RecipesView.swift in Sources */,
+				DDC71D582B92B5C600A73333 /* Secrets.swift in Sources */,
 				DDC71D512B92A3C400A73333 /* GenerateRecipesModal.swift in Sources */,
 				DDC71D3C2B75FF2C00A73333 /* BarcodeLookupService.swift in Sources */,
 				DDC71D492B868CDA00A73333 /* RecipeComponent.swift in Sources */,
