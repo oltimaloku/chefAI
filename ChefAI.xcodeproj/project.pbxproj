@@ -31,6 +31,7 @@
 		DDC71D4B2B868D6000A73333 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D4A2B868D6000A73333 /* Recipe.swift */; };
 		DDC71D4D2B868E2D00A73333 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D4C2B868E2D00A73333 /* RecipeDetailView.swift */; };
 		DDC71D4F2B86912800A73333 /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D4E2B86912800A73333 /* RecipesViewModel.swift */; };
+		DDC71D512B92A3C400A73333 /* GenerateRecipesModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC71D502B92A3C400A73333 /* GenerateRecipesModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		DDC71D4A2B868D6000A73333 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		DDC71D4C2B868E2D00A73333 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		DDC71D4E2B86912800A73333 /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
+		DDC71D502B92A3C400A73333 /* GenerateRecipesModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateRecipesModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				DDC71D1D2B7441C100A73333 /* RecipesView.swift */,
 				DDC71D4C2B868E2D00A73333 /* RecipeDetailView.swift */,
+				DDC71D502B92A3C400A73333 /* GenerateRecipesModal.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				DDC71D4D2B868E2D00A73333 /* RecipeDetailView.swift in Sources */,
 				DDC71D4F2B86912800A73333 /* RecipesViewModel.swift in Sources */,
 				DDC71D1E2B7441C100A73333 /* RecipesView.swift in Sources */,
+				DDC71D512B92A3C400A73333 /* GenerateRecipesModal.swift in Sources */,
 				DDC71D3C2B75FF2C00A73333 /* BarcodeLookupService.swift in Sources */,
 				DDC71D492B868CDA00A73333 /* RecipeComponent.swift in Sources */,
 				DD3653672B74318600E3ABEA /* ChefAIApp.swift in Sources */,
